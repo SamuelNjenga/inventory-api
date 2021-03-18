@@ -5,8 +5,9 @@ const UserRoutes = require('./UserRoutes')
 const AccountRoutes = require('./AccountRoutes')
 const ProductRoutes = require('./ProductRoutes')
 const SupplierRoutes = require('./SupplierRoutes')
+const OrderRoutes = require('./OrderRoutes')
 const SupplierProductRoutes = require('./SupplierProductRoutes')
-
+const OrderDetailRoutes = require('./OrderDetailRoutes')
 
 const router = Router()
 
@@ -15,9 +16,8 @@ router.use('/users', UserRoutes)
 router.use('/accounts', AccountRoutes)
 router.use('/products', ProductRoutes)
 router.use('/suppliers', SupplierRoutes)
+router.use('/orders', OrderRoutes)
 router.use('/supplierProducts', SupplierProductRoutes)
-
-
-
+router.use('/orderDetails', OrderDetailRoutes)
 
 module.exports = router
