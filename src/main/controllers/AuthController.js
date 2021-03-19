@@ -9,13 +9,13 @@ async function validatePassword (plainPassword, hashedPassword) {
 
 exports.login = async (req, res, next) => {
   try {
-    const { email, password } = req.body
+    const { username, password } = req.body
     const user = await authService.getUser({
       where: {
-        email: email
+        username: username
       }
     })
-    if (!user) return next(new Error('Email does not exist'))
+    if (!user) return next(new Error('Username does not exist'))
     const validPassword = await validatePassword(password, user.password)
     if (!validPassword) return next(new Error('Password is not correct'))
     const accessToken = jwt.sign(

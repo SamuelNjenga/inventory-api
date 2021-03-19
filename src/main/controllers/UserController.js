@@ -30,7 +30,7 @@ exports.createUser = async (req, res) => {
     const valid = await ReqValidator.validate(req, res, {
       firstName: 'required|string',
       lastName: 'required|string',
-      email: 'required|string|email',
+      username: 'required|string',
       password: 'required|string',
       accountId: 'required|integer'
     })
@@ -38,7 +38,7 @@ exports.createUser = async (req, res) => {
     const data = {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      email: req.body.email,
+      username: req.body.username,
       password: req.body.password,
       accountId: req.body.accountId
     }
@@ -46,7 +46,7 @@ exports.createUser = async (req, res) => {
     const newUser = {
       firstName: data.firstName,
       lastName: data.lastName,
-      email: data.email,
+      username: data.username,
       password: hashedPassword,
       accountId: req.body.accountId
     }
@@ -62,7 +62,7 @@ exports.updateUser = async (req, res) => {
     const valid = await ReqValidator.validate(req, res, {
       firstName: 'required|string',
       lastName: 'required|string',
-      email: 'required|string|email',
+      username: 'required|string',
       password: 'required|string',
       accountId: 'required|integer'
     })
@@ -70,7 +70,7 @@ exports.updateUser = async (req, res) => {
     const data = {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      email: req.body.email,
+      username: req.body.username,
       password: req.body.password,
       accountId: req.body.accountId
     }
@@ -78,7 +78,7 @@ exports.updateUser = async (req, res) => {
     const newUser = {
       firstName: data.firstName,
       lastName: data.lastName,
-      email: data.email,
+      username: data.username,
       password: hashedPassword,
       accountId: req.body.accountId
     }
